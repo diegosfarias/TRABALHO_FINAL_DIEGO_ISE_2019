@@ -7,6 +7,7 @@
 //pinos e declaraçoes do sensor de fumaça.
 int pinSensor =A0;
 int var = 0;
+
 //Variável para selecionar a quantidade de Gás/Fumaça detectada.
 int ValDesarm = 30; 
 int valor = 0;
@@ -30,11 +31,12 @@ void setup()
   pinMode(Rele, OUTPUT);
   pinMode(buzzer, OUTPUT);
   Serial.println("SISTEMA CONTRA INCENDIOS V1.0");
+  Serial.println("SISTEMA CONTRA INCENDIOS LIGADO");
 }
  
 void loop()
 {
-  Serial.println("SISTEMA CONTRA INCENDIOS LIGADO");
+  
   
   //Faz a leitura da entrada do sensor de fumaça e a transforma para porcentagem.
   valor = analogRead(pinSensor); 
@@ -51,21 +53,13 @@ void loop()
     Serial.println("posivel incendio detectado!");
     Serial.println(valor); //Escreve o valor na porta Serial
     Serial.println("Verificando a Existencia de Fogo");
-    delay(100);
+    delay(200);
     
     //Dispara alarme de incêndio.
     if (valor_a != 0)
   	{
     	Serial.println("Fogo detectado !!!");
-      digitalWrite(Rele, HIGH); //Liga relé para solenóide
-  	  digitalWrite(buzzer, HIGH);
-      delay(50);
-      digitalWrite(buzzer, LOW);
-      delay(50);
-      digitalWrite(buzzer, HIGH);
-      delay(50);
-      digitalWrite(buzzer, LOW);
-      delay(50);
+      	
       //Valores do sensor de chamas.
       Serial.print("analogica fogo: ");
   		Serial.print(valor_a);
@@ -74,22 +68,40 @@ void loop()
       
       Serial.println("Alarme disparado!!!");
       Serial.println("Ativando as medidas contra incendios!");
-    	
+      //Ativa as medidas contra incendios.
+      digitalWrite(Rele, HIGH);
   		
-  		delay(1000); //Tempo de disparo do alarme
-  		digitalWrite(buzzer, LOW); //Desliga o alarme
-  		delay(2000); //Aguarda
+  		//Dispara alarme de incêndio.
+  	   
+  	  digitalWrite(buzzer, HIGH);
+      delay(50);
+      digitalWrite(buzzer, LOW);
+      delay(50);
+      digitalWrite(buzzer, HIGH);
+      delay(50);
+      digitalWrite(buzzer, LOW);
+      delay(50);
      
     }else{
       Serial.println("Apenas fumaça detctada");
       delay(100);
-  	  digitalWrite(buzzer, HIGH); //Dispara alarme de vazamento ou possível incêndio
+      //Dispara alarme de incêndio.
+  	   
+  	  digitalWrite(buzzer, HIGH);
+      delay(50);
+      digitalWrite(buzzer, LOW);
+      delay(50);
+      digitalWrite(buzzer, HIGH);
+      delay(50);
+      digitalWrite(buzzer, LOW);
+      delay(50);
     
     }
     
  }else{
  	digitalWrite(Rele, LOW); //Caso contrário permaneça com o relé desligado
  }
- delay(1000);
+  delay(1000);
+  Serial.println("SISTEMA CONTRA INCENDIOS LIGADO");
 
 }
