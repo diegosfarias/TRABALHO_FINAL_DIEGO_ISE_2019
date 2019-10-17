@@ -1,4 +1,4 @@
-//Projeto final de ISI_2019 da UFRR.
+//Projeto final de ISE_2019 da UFRR.
 //Sistema contra incendios.
 //Autor: Diego souza Farias.
 //Email: (diegofarias2222@gmail.com).
