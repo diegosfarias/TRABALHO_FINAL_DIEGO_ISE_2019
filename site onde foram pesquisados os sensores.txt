@@ -1,0 +1,4 @@
+sensor de gas:
+https://www.usinainfo.com.br/blog/sensor-de-gas-inflamavel-e-fumaca-mq-2-para-arduino/
+sensor de chama:
+https://www.filipeflop.com/blog/sensor-de-chama-com-arduino/
