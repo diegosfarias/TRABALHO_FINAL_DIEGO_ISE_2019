@@ -13,10 +13,10 @@ int ValDesarm = 30;
 int valor = 0;
 
 //pinos e declaraçoes do sensor de fogo.
-int pino_D0 = 7;
+
 int pino_A0 = A1;
 int valor_a = 0;
-int valor_d = 0;
+
 
 //pinos do alarme/conter incendio.
 int Rele = 3; //Pino Relé
@@ -27,7 +27,7 @@ void setup()
 {
   Serial.begin(9600);
   pinMode(pino_A0, INPUT);
-  pinMode(pino_D0, INPUT);
+  
   pinMode(Rele, OUTPUT);
   pinMode(buzzer, OUTPUT);
   Serial.println("SISTEMA CONTRA INCENDIOS V1.0");
@@ -44,7 +44,7 @@ void loop()
   
   //Faz a leitura da entrada do sensor de fogo.
   valor_a = analogRead(pino_A0);
-  valor_d = digitalRead(pino_D0);
+  
  
   delay(500);
   
@@ -63,8 +63,7 @@ void loop()
       //Valores do sensor de chamas.
       Serial.print("analogica fogo: ");
   		Serial.print(valor_a);
-  		Serial.print(" fogo digital: ");
-  		Serial.println(valor_d);
+  		
       
       Serial.println("Alarme disparado!!!");
       Serial.println("Ativando as medidas contra incendios!");
